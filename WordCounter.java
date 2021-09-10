@@ -1,10 +1,11 @@
 public class WordCounter{
 	//vars
 	private String userText;
-	private int totalWords;
+	private int totalWords, totalCharacters;
 	//constructor
 	public WordCounter(){
 		totalWords=1;
+		totalCharacters=0;
 	}
 	//set
 	public void setUserText(String userText){
@@ -18,8 +19,16 @@ public class WordCounter{
 			}
 		}
 	}
+	public void countCharacters(){
+		for(int i=0; i<userText.length();i++){
+			totalCharacters++;
+		}
+	}
 	//get
 	public int getTotalWords(){
 		return totalWords;
+	}
+	public int getTotalCharacters(){
+		return totalCharacters;
 	}
 }

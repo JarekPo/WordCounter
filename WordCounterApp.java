@@ -3,7 +3,7 @@ public class WordCounterApp{
 	public static void main(String args[]){
 		//vars
 		String userText, errorMsg;
-		int totalWords;
+		int totalWords, totalCharacters;
 		//object
 		WordCounter wc=new WordCounter();
 		//input
@@ -18,9 +18,12 @@ public class WordCounterApp{
 		wc.setUserText(userText);
 		//compute
 		wc.countWords();
+		wc.countCharacters();
 		//get
 		totalWords=wc.getTotalWords();
+		totalCharacters=wc.getTotalCharacters();
 		//output
-		JOptionPane.showMessageDialog(null, "Number of words in your text: "+totalWords);
+		System.out.println(userText);
+		JOptionPane.showMessageDialog(null, "Number of words in your text: "+totalWords+"\nNumber of characters in your text: "+totalCharacters);
 	}
 }
