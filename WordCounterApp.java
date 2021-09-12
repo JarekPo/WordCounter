@@ -3,7 +3,7 @@ public class WordCounterApp{
 	public static void main(String args[]){
 		//vars
 		String userText, errorMsg;
-		int totalWords, totalCharacters;
+		int totalWords, totalCharacters, totalSentences;
 		//object
 		WordCounter wc=new WordCounter();
 		//input
@@ -14,16 +14,20 @@ public class WordCounterApp{
 				JOptionPane.showMessageDialog(null, errorMsg);
 			}
 		}
-		//set
-		wc.setUserText(userText);
-		//compute
-		wc.countWords();
-		wc.countCharacters();
-		//get
-		totalWords=wc.getTotalWords();
-		totalCharacters=wc.getTotalCharacters();
-		//output
-		System.out.println(userText);
-		JOptionPane.showMessageDialog(null, "Number of words in your text: "+totalWords+"\nNumber of characters in your text: "+totalCharacters);
+		else{
+			//set
+			wc.setUserText(userText);
+			//compute
+			wc.countWords();
+			wc.countCharacters();
+			wc.countSentences();
+			//get
+			totalWords=wc.getTotalWords();
+			totalCharacters=wc.getTotalCharacters();
+			totalSentences=wc.getSentences();
+			//output
+			System.out.println(userText);
+			JOptionPane.showMessageDialog(null, "Number of words in your text: "+totalWords+"\nNumber of characters in your text: "+totalCharacters+"\nNumber of sentences in your text: "+totalSentences);
+		}
 	}
 }

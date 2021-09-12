@@ -1,11 +1,12 @@
 public class WordCounter{
 	//vars
 	private String userText;
-	private int totalWords, totalCharacters;
+	private int totalWords, totalCharacters, totalSentences;
 	//constructor
 	public WordCounter(){
 		totalWords=1;
 		totalCharacters=0;
+		totalSentences=0;
 	}
 	//set
 	public void setUserText(String userText){
@@ -24,11 +25,26 @@ public class WordCounter{
 			totalCharacters++;
 		}
 	}
+	public void countSentences(){
+		if(userText.length()>0){
+			for(int i=1;i<userText.length();i++){
+				if(((userText.charAt(i)=='.') || (userText.charAt(i)=='!') || (userText.charAt(i)=='?')) && ((userText.charAt(i-1)!='.') || (userText.charAt(i)!='!') || (userText.charAt(i)!='?'))){
+					totalSentences++;
+				}
+			}
+		}
+		if (totalSentences==0){
+			totalSentences=1;
+		}
+	}
 	//get
 	public int getTotalWords(){
 		return totalWords;
 	}
 	public int getTotalCharacters(){
 		return totalCharacters;
+	}
+	public int getSentences(){
+		return totalSentences;
 	}
 }
