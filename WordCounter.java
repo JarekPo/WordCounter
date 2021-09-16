@@ -3,6 +3,7 @@ public class WordCounter{
 	private String userText;
 	private int totalWords, totalCharacters, totalSentences, mostOccurrences, charOccurrences;
 	private char mostCommon;
+	private char[] letters={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
 	//constructor
 	public WordCounter(){
 		totalWords=1;
@@ -45,7 +46,11 @@ public class WordCounter{
 		for(int i=0;i<userText.length();i++){
 			for(int j=(i+1);j<userText.length();j++){
 				if(userText.charAt(i)==userText.charAt(j)){
-					charOccurrences++;
+					for(int k=0;k<letters.length;k++){
+						if(letters[k]==userText.charAt(i)){//fix character counting
+							charOccurrences++;
+						}
+					}
 				}
 			}
 			if(charOccurrences>=mostOccurrences){
