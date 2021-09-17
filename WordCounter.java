@@ -9,8 +9,8 @@ public class WordCounter{
 		totalWords=1;
 		totalCharacters=0;
 		totalSentences=0;
-		mostOccurrences=0;
-		charOccurrences=0;
+		mostOccurrences=1;
+		charOccurrences=1;
 	}
 	//set
 	public void setUserText(String userText){
@@ -45,19 +45,20 @@ public class WordCounter{
 	public void findMostCommonLetter(){
 		for(int i=0;i<userText.length();i++){
 			for(int j=(i+1);j<userText.length();j++){
-				if(userText.charAt(i)==userText.charAt(j)){
-					for(int k=0;k<letters.length;k++){
-						if(letters[k]==userText.charAt(i)){//fix character counting
+				if(userText.charAt(i)==userText.charAt(j) && (userText.charAt(j)!=mostCommon)){//??????????
+					for(int k=0;k<letters.length;k++){//this loop needs to be outer?
+						if(letters[k]==userText.charAt(i)){
 							charOccurrences++;
+							System.out.println(charOccurrences+": "+userText.charAt(j));
 						}
 					}
 				}
 			}
-			if(charOccurrences>=mostOccurrences){
+			if(charOccurrences>=mostOccurrences){//these lines need to go to the loop above?
 				mostCommon=userText.charAt(i);
 				mostOccurrences=charOccurrences;
-				charOccurrences=0;
 			}
+			charOccurrences=1;
 		}
 	}
 	//get
