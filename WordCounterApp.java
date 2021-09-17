@@ -3,7 +3,8 @@ public class WordCounterApp{
 	public static void main(String args[]){
 		//vars
 		String userText, errorMsg;
-		int totalWords, totalCharacters, totalSentences;
+		int totalWords, totalCharacters, totalSentences, mostOccurrences;
+		char mostCommon;
 		//object
 		WordCounter wc=new WordCounter();
 		//input
@@ -21,13 +22,17 @@ public class WordCounterApp{
 			wc.countWords();
 			wc.countCharacters();
 			wc.countSentences();
+			wc.findMostCommonLetter();
 			//get
 			totalWords=wc.getTotalWords();
 			totalCharacters=wc.getTotalCharacters();
 			totalSentences=wc.getSentences();
+			mostOccurrences=wc.getMostOccurrences();
+			mostCommon=wc.getMostCommonLetter();
 			//output
 			System.out.println(userText);
 			JOptionPane.showMessageDialog(null, "Number of words in your text: "+totalWords+"\nNumber of characters in your text: "+totalCharacters+"\nNumber of sentences in your text: "+totalSentences);
+			JOptionPane.showMessageDialog(null, "Most common letter in your text is \'"+mostCommon+"\', it occurrs "+mostOccurrences+" times");
 		}
 	}
 }
