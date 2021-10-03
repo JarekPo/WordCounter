@@ -71,21 +71,23 @@ public class WordCounter{
 		for(int i=0;i<userText.length();i=i+wordLength){
 			for(int j=0; (userText.charAt(j)!=' ') && j<userText.length();j++){
 				strBuffFirstWord.append(userText.charAt(j));
-				wordLength=strBuffFirstWord.length();
 				//create method isLastWord and apply before second word loop
-				for(int k=wordLength; (userText.charAt(k)!=' ') && (k<userText.length());k++){
-					strBuffSecondWord.append(userText.charAt(k));
-					if(strBuffFirstWord.equals(strBuffSecondWord)){
-						wordOccurrences++;
-					}
-				}
-				strBuffFirstWord=strBuffSecondWord;
-				strBuffSecondWord.delete(0, strBuffSecondWord.length());
 			}
+			wordLength=strBuffFirstWord.length();
+			for(int k=wordLength; (userText.charAt(k)!=' ') && (k<userText.length());k++){
+				strBuffSecondWord.append(userText.charAt(k));
+			}
+			if(strBuffFirstWord.equals(strBuffSecondWord)){
+				wordOccurrences++;
+			}
+			//strBuffFirstWord=strBuffSecondWord;
+
 			if(wordOccurrences>=mostWordOccurrences){
 				mostCommonWord=strBuffFirstWord.toString();
 				mostWordOccurrences=wordOccurrences;
 			}
+		strBuffSecondWord.delete(0, strBuffSecondWord.length());
+		strBuffFirstWord.delete(0, strBuffFirstWord.length());
 		wordOccurrences=1;
 		}
 	}
