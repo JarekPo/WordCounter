@@ -13,8 +13,8 @@ public class WordCounter{
 		mostOccurrences=1;
 		charOccurrences=1;
 		wordLength=0;
-		StringBuffer strBuffFirstWord=new StringBuffer();
-		StringBuffer strBuffSecondWord=new StringBuffer();
+		strBuffFirstWord=new StringBuffer();
+		strBuffSecondWord=new StringBuffer();
 		mostWordOccurrences=1;
 		wordOccurrences=1;
 	}
@@ -31,9 +31,6 @@ public class WordCounter{
 		}
 	}
 	public void countCharacters(){
-		/*for(int i=0; i<userText.length();i++){
-			totalCharacters++;
-		}*/
 		totalCharacters=userText.length();
 	}
 	public void countSentences(){
@@ -55,7 +52,6 @@ public class WordCounter{
 					for(int k=0;k<letters.length;k++){
 						if(letters[k]==userText.charAt(i)){
 							charOccurrences++;
-							System.out.println(charOccurrences+": "+userText.charAt(j));
 						}
 					}
 				}
@@ -67,7 +63,7 @@ public class WordCounter{
 			charOccurrences=1;
 		}
 	}
-	public void findMostCommonWord(){
+/*	public void findMostCommonWord(){
 		for(int i=0;i<userText.length();i=i+wordLength){
 			for(int j=0; (userText.charAt(j)!=' ') && j<userText.length();j++){
 				strBuffFirstWord.append(userText.charAt(j));
@@ -90,7 +86,7 @@ public class WordCounter{
 		strBuffFirstWord.delete(0, strBuffFirstWord.length());
 		wordOccurrences=1;
 		}
-	}
+	}*/
 	//get
 	public int getTotalWords(){
 		return totalWords;
